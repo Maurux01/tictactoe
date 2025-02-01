@@ -1,124 +1,56 @@
-:root {
-  --primary-color: #2c3e50;       /* Dark blue for board */
-  --accent-color: #3498db;        /* Bright blue for accents */
-  --text-color: #333;             /* Default text color */
-  --win-color: #e74c3c;           /* Red for winning highlight */
-  --cell-size: 100px;             /* Base cell size */
-  --border-width: 4px;            /* Board border width */
-}
-
-/* Base reset and centering */
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  margin: 0;
-  background: #ecf0f1;
-  font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
-/* Game title styling */
-.title {
-  text-align: center;
-  color: var(--primary-color);
-  margin-bottom: 2rem;
-  font-size: 2.5em;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+h1 {
+    margin-top: 20px;
 }
 
-/* Board grid layout */
-.board {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  background: var(--primary-color);
-  border: var(--border-width) solid var(--primary-color);
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+#turn-indicator {
+    margin: 10px 0;
+    font-size: 1.5em;
 }
 
-/* Individual cells */
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
 .cell {
-  width: var(--cell-size);
-  height: var(--cell-size);
-  background: white;
-  border: var(--border-width) solid var(--primary-color);
-  cursor: pointer;
-  position: relative;
-  transition: background 0.2s ease;
-
-  /* Prevent text selection */
-  user-select: none;
-  -webkit-user-select: none;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    cursor: pointer;
 }
 
-/* Remove inner borders */
-.cell:nth-child(3n) { border-right: 0; }
-.cell:nth-child(3n+1) { border-left: 0; }
-.cell:nth-child(-n+3) { border-top: 0; }
-.cell:nth-last-child(-n+3) { border-bottom: 0; }
-
-/* Hover effects */
-.cell:hover:not(.x):not(.o) {
-  background: #f8f9fa;
-  transform: scale(1.05);
-  z-index: 1;
+.cell:hover {
+    background-color: #e0e0e0;
 }
 
-/* X/O styling */
-.cell.x::before,
-.cell.o::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: calc(var(--cell-size) * 0.75);
-  font-weight: bold;
+#restart-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
 }
 
-.cell.x::before {
-  content: "X";
-  color: var(--accent-color);
-  text-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
-}
-
-.cell.o::before {
-  content: "O";
-  color: var(--win-color);
-  text-shadow: 0 2px 4px rgba(231, 76, 60, 0.3);
-}
-
-/* Winning cells highlight */
-.cell.win {
-  background: rgba(241, 196, 15, 0.2);
-  animation: pulse 1s infinite;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-/* Status message */
-.status {
-  text-align: center;
-  margin-top: 2rem;
-  font-size: 1.5em;
-  color: var(--primary-color);
-  font-weight: bold;
-}
-
-/* Responsive design */
-@media (max-width: 400px) {
-  :root {
-    --cell-size: 80px;
-    --border-width: 3px;
-  }
-  
-  .title {
-    font-size: 1.8em;
-  }
+#restart-button:hover {
+    background-color: #0056b3;
 }
