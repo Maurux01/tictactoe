@@ -93,7 +93,7 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## Author
 
-- **Mauricio** - [GitHub Profile](https://github.com/Maurux01)
+- **Mauro infante/maurux01** - [GitHub Profile](https://github.com/Maurux01)
 
 ---
 
